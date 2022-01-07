@@ -12,8 +12,7 @@
 
 NAME = push_swap
 
-SRC = main.c \
-	stack.c \
+COMMON = stack.c \
 	load.c \
 	utils.c \
 	op/pa.c \
@@ -28,7 +27,14 @@ SRC = main.c \
 	op/sb.c \
 	op/ss.c
 
+SRC = $(COMMON) \
+	main.c
+
+CHECKER_SRC = $(COMMON) \
+	main_checker.c
+
 OBJ = $(SRC:.c=.o)
+CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 
 CC = gcc
 
@@ -42,13 +48,17 @@ $(NAME): $(OBJ)
 	make -C libft/
 	$(CC) $(OBJ) -o $@ $(LDFLAGS) $(LDLIBS)
 
+checker: $(CHECKER_OBJ)
+	make -C libft/
+	$(CC) $(CHECKER_OBJ) -o checker $(LDFLAGS) $(LDLIBS)
+
 clean:
 	make -C libft/ clean
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(CHECKER_OBJ)
 
 fclean: clean
 	make -C libft/ fclean
-	rm -f $(NAME)
+	rm -f $(NAME) checker
 
 re: fclean all
 

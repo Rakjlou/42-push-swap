@@ -15,7 +15,9 @@ static t_bool	valid_chars(const char *arg)
 		}
 		++i;
 	}
-	return (TRUE);
+	if (i > 0)
+		return (TRUE);
+	return (FALSE);
 }
 
 static t_bool	load_num(t_stack *stack, int num)
