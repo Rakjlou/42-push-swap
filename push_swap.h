@@ -32,4 +32,17 @@ t_bool	load(t_stack *stack, int ac, char **av);
 int	data_to_num(void *data);
 int	*malloc_num(int num);
 
+/* op/ */
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rr(t_stack *stack);
+void	rrr(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
+
 #endif

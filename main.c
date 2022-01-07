@@ -14,6 +14,8 @@ int	main(int ac, char **av)
 	else if (!load(&stack, ac, av))
 		return (ft_putendl_fd(ERROR_MSG, STDERR_FILENO), EXIT_FAILURE);
 	stack_print(&stack);
+	rra(&stack);
+	stack_print(&stack);
 	stack_destroy(&stack);
 	return (0);
 }

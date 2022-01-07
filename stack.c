@@ -1,12 +1,16 @@
 #include "push_swap.h"
 #include "ftprintf.h"
 
-static void	print_num(t_bool print, void *data)
+static void	print_num(t_bool print, void *data, int direction)
 {
-	if (print)
+	if (print && direction < 0)
 		ftprintf("%15d", data_to_num(data));
-	else
-		ftprintf("><");
+	else if (print && direction > 0)
+		ftprintf("%-15d", data_to_num(data));
+	else if (direction < 0)
+		ftprintf("%15s", "");
+	else if (direction > 0)
+		ftprintf("%-15s", "");
 }
 
 void	stack_print(t_stack *stack)
@@ -28,9 +32,9 @@ void	stack_print(t_stack *stack)
 			ps.b_print = FALSE;
 		if (!ps.a_print && !ps.b_print)
 			break ;
-		print_num(ps.a_print, ps.a.data);
+		print_num(ps.a_print, ps.a.data, -1);
 		ftprintf(" | ");
-		print_num(ps.b_print, ps.b.data);
+		print_num(ps.b_print, ps.b.data, 1);
 		ftprintf("\n");
 	}
 	ftprintf("=================================\n");
