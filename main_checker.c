@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_checker.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/07 23:39:01 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 #include "get_next_line.h"
 #include "ftprintf.h"
@@ -5,7 +17,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-static t_bool find_and_call(
+static t_bool	find_and_call(
 	t_stack *stack,
 	t_op op[11],
 	char *cmd,

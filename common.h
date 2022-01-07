@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   common.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/07 23:38:25 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef COMMON_H
 # define COMMON_H
 
@@ -29,8 +41,8 @@ void	stack_destroy(t_stack *stack);
 t_bool	load(t_stack *stack, int ac, char **av);
 
 /* utils.c */
-int	data_to_num(void *data);
-int	*malloc_num(int num);
+int		data_to_num(void *data);
+int		*malloc_num(int num);
 
 /* op/ */
 void	pa(t_stack *stack);
