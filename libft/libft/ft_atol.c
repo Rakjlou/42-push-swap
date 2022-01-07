@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_destroy.c                                      :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 04:49:17 by nsierra-          #+#    #+#             */
-/*   Updated: 2021/12/02 06:16:12 by nsierra-         ###   ########.fr       */
+/*   Created: 2021/11/22 12:51:35 by nsierra-          #+#    #+#             */
+/*   Updated: 2021/11/23 16:34:25 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftlst.h"
-#include <stdlib.h>
+#include "libft.h"
 
-void	lst_destroy(t_lst **lst, void (*del)(void *))
+long	ft_atol(const char *nptr)
 {
-	void	*data;
-	t_lst	*list;
+	long	result;
+	int		multiplier;
 
-	list = *lst;
-	while (42)
+	result = 0;
+	multiplier = 1;
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
+		nptr++;
+	if (*nptr == '+' || *nptr == '-')
 	{
-		data = lst_pop_back(list, NULL);
-		if (data == NULL)
-			break ;
-		if (del)
-			del(data);
+		if (*nptr == '-')
+			multiplier = -1;
+		nptr++;
 	}
-	free(list);
-	*lst = NULL;
+	while (ft_isdigit(*nptr))
+	{
+		result = (result * 10) + (*nptr - '0');
+		nptr++;
+	}
+	return (result * multiplier);
 }

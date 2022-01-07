@@ -34,6 +34,7 @@ LIBFT_SRC = ft_isalpha.c \
 	ft_memcmp.c \
 	ft_strnstr.c \
 	ft_atoi.c \
+	ft_atol.c \
 	ft_calloc.c \
 	ft_strdup.c \
 	ft_substr.c \
@@ -138,4 +139,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean bonus all
+.PHONY: clean fclean all

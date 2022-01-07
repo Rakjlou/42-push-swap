@@ -12,13 +12,16 @@
 
 NAME = push_swap
 
-SRC = main.c
+SRC = main.c \
+	stack.c \
+	load.c \
+	utils.c
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -I libft/
+CFLAGS = -g3 -Wall -Wextra -Werror -pedantic -ansi -I libft/
 LDFLAGS = -L libft/
 LDLIBS = -lft
 

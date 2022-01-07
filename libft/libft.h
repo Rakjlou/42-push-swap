@@ -38,6 +38,7 @@ int		ft_tolower(int c);
 
 /* Conversion */
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 char	*ft_itoa(int n);
 char	*ft_utoa_base(unsigned long num, char *base, unsigned int base_size);
 char	*ft_ltoa_base(long num, char *base, unsigned int base_size);
