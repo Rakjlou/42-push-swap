@@ -1,20 +1,23 @@
 #include "checker.h"
 #include "get_next_line.h"
+#include "ftprintf.h"
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
 
 static t_bool find_and_call(
 	t_stack *stack,
 	t_op op[11],
-	const char *cmd,
+	char *cmd,
 	size_t len)
 {
 	int	i;
 
 	i = 0;
+	cmd[len - 1] = '\0';
 	while (i < 11)
 	{
-		if (ft_strncmp(op[i].name, cmd, len - 1) == 0)
+		if (ft_strncmp(op[i].name, cmd, UINT_MAX) == 0)
 		{
 			op[i].callback(stack);
 			return (TRUE);
@@ -24,7 +27,7 @@ static t_bool find_and_call(
 	return (FALSE);
 }
 
-static t_bool	execute_cmd(t_stack *stack, const char *cmd, size_t len)
+static t_bool	execute_cmd(t_stack *stack, char *cmd, size_t len)
 {
 	t_op	op[11];
 
