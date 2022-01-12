@@ -25,13 +25,15 @@ COMMON = stack.c \
 	op/rrr.c \
 	op/sa.c \
 	op/sb.c \
-	op/ss.c
+	op/ss.c \
+	op/utils.c \
 
 SRC = $(COMMON) \
-	main.c
+	sort/sort3.c \
+	main.c \
 
 CHECKER_SRC = $(COMMON) \
-	main_checker.c
+	main_checker.c \
 
 OBJ = $(SRC:.c=.o)
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
@@ -59,6 +61,9 @@ clean:
 fclean: clean
 	make -C libft/ fclean
 	rm -f $(NAME) checker
+
+test: all checker
+	valgrind ./push_swap $(values) | valgrind ./checker $(values)
 
 re: fclean all
 

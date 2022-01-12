@@ -1,4 +1,44 @@
-#include "push_swap.h"
+#include "common.h"
+#include <limits.h>
+
+int	get_max(t_lst *stack)
+{
+	t_iter	iter;
+	int		max;
+	int		candidate;
+
+	max = INT_MIN;
+	iter_init(&iter, stack, ASC);
+	while (iter_next(&iter))
+	{
+		candidate = data_to_num(iter.data);
+		if (candidate > max)
+			max = candidate;
+	}
+	return (max);
+}
+
+int	get_min(t_lst *stack)
+{
+	t_iter	iter;
+	int		min;
+	int		candidate;
+
+	min = INT_MAX;
+	iter_init(&iter, stack, ASC);
+	while (iter_next(&iter))
+	{
+		candidate = data_to_num(iter.data);
+		if (candidate < min)
+			min = candidate;
+	}
+	return (min);
+}
+
+int	num_at(t_lst *lst, size_t pos)
+{
+	return (data_to_num(lst_data_at(lst, pos)));
+}
 
 int	data_to_num(void *data)
 {

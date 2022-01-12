@@ -5,6 +5,7 @@
 # include "ftlst.h"
 
 # define ERROR_MSG "Error"
+# define OP_COUNT 11
 
 typedef struct s_stack
 {
@@ -20,6 +21,13 @@ typedef struct s_stack_print
 	t_bool	b_print;
 }	t_stack_print;
 
+typedef struct s_op
+{
+	char	*name;
+	void	(*callback)(t_stack *);
+}	t_op;
+
+
 /* stack.c */
 void	stack_print(t_stack *stack);
 t_bool	stack_init(t_stack *stack);
@@ -33,6 +41,7 @@ int	data_to_num(void *data);
 int	*malloc_num(int num);
 
 /* op/ */
+t_op	*get_ops(void);
 void	pa(t_stack *stack);
 void	pb(t_stack *stack);
 void	ra(t_stack *stack);

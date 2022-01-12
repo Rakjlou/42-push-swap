@@ -7,7 +7,7 @@
 
 static t_bool find_and_call(
 	t_stack *stack,
-	t_op op[11],
+	t_op *op,
 	char *cmd,
 	size_t len)
 {
@@ -15,7 +15,7 @@ static t_bool find_and_call(
 
 	i = 0;
 	cmd[len - 1] = '\0';
-	while (i < 11)
+	while (i < OP_COUNT)
 	{
 		if (ft_strncmp(op[i].name, cmd, UINT_MAX) == 0)
 		{
@@ -29,30 +29,9 @@ static t_bool find_and_call(
 
 static t_bool	execute_cmd(t_stack *stack, char *cmd, size_t len)
 {
-	t_op	op[11];
+	t_op	*op;
 
-	op[0].name = "pa";
-	op[0].callback = pa;
-	op[1].name = "pb";
-	op[1].callback = pb;
-	op[2].name = "ra";
-	op[2].callback = ra;
-	op[3].name = "rb";
-	op[3].callback = rb;
-	op[4].name = "rra";
-	op[4].callback = rra;
-	op[5].name = "rrb";
-	op[5].callback = rrb;
-	op[6].name = "rr";
-	op[6].callback = rr;
-	op[7].name = "rrr";
-	op[7].callback = rrr;
-	op[8].name = "sa";
-	op[8].callback = sa;
-	op[9].name = "sb";
-	op[9].callback = sb;
-	op[10].name = "ss";
-	op[10].callback = ss;
+	op = get_ops();
 	return (find_and_call(stack, op, cmd, len));
 }
 
@@ -63,8 +42,6 @@ static void	print_status(t_stack *stack)
 
 	if (stack->b->size > 0)
 		ft_putendl_fd(KO_MSG, STDOUT_FILENO);
-	else if (stack->a->size == 1)
-		ft_putendl_fd(OK_MSG, STDOUT_FILENO);
 	else
 	{
 		iter_init(&iter, stack->a, ASC);
@@ -82,13 +59,16 @@ static void	print_status(t_stack *stack)
 	}
 }
 
+/* TODO: Remove total cmds for norme */
 static void	read_cmds(t_stack *stack)
 {
 	char	*line;
 	size_t	len;
 	int		error;
+	int		cmds_total;
 
 	error = 0;
+	cmds_total = 0;
 	while (42)
 	{
 		line = get_next_line(STDIN_FILENO);
@@ -99,15 +79,25 @@ static void	read_cmds(t_stack *stack)
 			len = ft_strlen(line);
 			if (ft_strlen(line) < 2 || !execute_cmd(stack, line, len))
 				error = 1;
+			if (error == 0)
+				++cmds_total;
+			/*
 			else
+			{
+				ft_putendl_fd(line, STDOUT_FILENO);
 				stack_print(stack);
+			}
+			*/
 		}
 		free(line);
 	}
 	if (error == 1)
 		ft_putendl_fd(ERROR_MSG, STDERR_FILENO);
 	else
+	{
 		print_status(stack);
+		ftprintf("%d commands\n", cmds_total);
+	}
 }
 
 int	main(int ac, char **av)
