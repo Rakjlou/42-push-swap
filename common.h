@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/07 23:38:25 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/12 23:56:59 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_op
 	char	*name;
 	void	(*callback)(t_stack *);
 }	t_op;
-
 
 /* stack.c */
 void	stack_print(t_stack *stack);

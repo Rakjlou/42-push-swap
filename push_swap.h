@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/07 23:37:42 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 00:01:06 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "common.h"
 
-typedef	enum	e_op_id
+typedef enum e_op_id
 {
 	PA,
 	PB,
@@ -35,9 +35,9 @@ void	do_op(t_stack *stack, t_op_id id);
 void	do_2op(t_stack *stack, t_op_id id, t_op_id id2);
 
 /* utils.c */
-int	num_at(t_lst *lst, size_t pos);
-int	get_max(t_lst *stack);
-int	get_min(t_lst *stack);
+int		num_at(t_lst *lst, size_t pos);
+int		get_max(t_lst *stack);
+int		get_min(t_lst *stack);
 
 /* sort/ */
 void	sort3(t_stack *stack);
