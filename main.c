@@ -22,7 +22,7 @@ static void	stack_sort(t_stack *stack)
 		do_op(stack, SA);
 	else if (stack->a->size == 3)
 		sort3(stack);
-	else
+	else if (stack->a->size > 3)
 		ft_putendl_fd("TOO BIG FOR NOW", STDOUT_FILENO);
 }
 
