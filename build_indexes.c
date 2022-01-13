@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 07:18:02 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 08:05:16 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 08:34:24 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ static unsigned int	count_how_many_are_lesser(t_lst *lst, int ref)
 	return (count);
 }
 
-void	build_indexes(t_lst *lst)
+void	build_indexes(t_stack *stack)
 {
 	t_iter	iter;
 	t_num	*num;
 
-	iter_init(&iter, lst, ASC);
+	iter_init(&iter, stack->a, ASC);
 	while (iter_next(&iter))
 	{
 		num = (t_num *)iter.data;
-		num->index = count_how_many_are_lesser(lst, num->num);
+		num->index = count_how_many_are_lesser(stack->a, num->num);
+		stack->max_index = num->index;
 	}
 }

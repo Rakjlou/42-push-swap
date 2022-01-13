@@ -6,28 +6,41 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 01:04:39 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 07:54:39 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 10:05:12 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ftprintf.h"
+#include <limits.h>
 
-static unsigned int	find_position(t_lst *stack, int num)
+static unsigned int	find_position(t_stack *stack, t_num *to_insert)
 {
-	unsigned int	pos;
+	unsigned int	candidate;
 	t_iter			iter;
+	int				dir;
 
-	pos = 0;
-	iter_init(&iter, stack, ASC);
-	while (iter_next(&iter))
+	dir = 1;
+	if (to_insert->index == stack->max_index)
+		dir = -1;
+	candidate = to_insert->index;
+	while (42)
 	{
-		if (num < data_to_num(iter.data))
-			return (pos);
-		++pos;
+		candidate += dir;
+		iter_init(&iter, stack->a, ASC);
+		while (iter_next(&iter))
+		{
+			if (data_to_index(iter.data) == candidate)
+			{
+				if (dir == -1)
+					return ((unsigned int)iter.pos + 1);
+				return ((unsigned int)iter.pos);
+			}
+		}
+		if ((dir == -1 && candidate == 0) || (dir == 1 && candidate >= stack->max_index))
+			break ;
 	}
-	get_max(stack, &pos);
-	return (pos + 1);
+	return (0);
 }
 
 static void	insert_at(t_stack *stack, unsigned int pos)
@@ -73,16 +86,17 @@ void	sort5(t_stack *stack)
 {
 	unsigned int	position;
 
-	build_indexes(stack->a);
-	do_op(stack, PB);
-	stack_print(stack);
 	while (stack->a->size > 3)
 		do_op(stack, PB);
 	sort3(stack);
 	while (stack->b->size > 0)
 	{
-		position = find_position(stack->a, data_to_num(stack->b->first->data));
+		stack_print(stack);
+		position = find_position(stack, data_at(stack->b, 0));
 		insert_at(stack, position);
 	}
+	stack_print(stack);
 	set_min_first(stack);
+	ft_putendl_fd("Ended", 1);
+	stack_print(stack);
 }

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 08:07:11 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 09:13:57 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 
 typedef struct s_stack
 {
-	t_lst	*a;
-	t_lst	*b;
+	t_lst			*a;
+	t_lst			*b;
+	unsigned int	max_index;
 }	t_stack;
 
 typedef struct s_stack_print
@@ -46,29 +47,30 @@ typedef struct s_num
 }	t_num;
 
 /* stack.c */
-void	stack_print(t_stack *stack);
-t_bool	stack_init(t_stack *stack);
-void	stack_destroy(t_stack *stack);
+void			stack_print(t_stack *stack);
+t_bool			stack_init(t_stack *stack);
+void			stack_destroy(t_stack *stack);
 
 /* load.c */
-t_bool	load(t_stack *stack, int ac, char **av);
+t_bool			load(t_stack *stack, int ac, char **av);
 
 /* utils.c */
-int		data_to_num(void *data);
-t_num	*malloc_num(int num);
+int				data_to_num(void *data);
+unsigned int	data_to_index(void *data);
+t_num			*malloc_num(int num);
 
 /* op/ */
-t_op	*get_ops(void);
-void	pa(t_stack *stack);
-void	pb(t_stack *stack);
-void	ra(t_stack *stack);
-void	rb(t_stack *stack);
-void	rra(t_stack *stack);
-void	rrb(t_stack *stack);
-void	rr(t_stack *stack);
-void	rrr(t_stack *stack);
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
-void	ss(t_stack *stack);
+t_op			*get_ops(void);
+void			pa(t_stack *stack);
+void			pb(t_stack *stack);
+void			ra(t_stack *stack);
+void			rb(t_stack *stack);
+void			rra(t_stack *stack);
+void			rrb(t_stack *stack);
+void			rr(t_stack *stack);
+void			rrr(t_stack *stack);
+void			sa(t_stack *stack);
+void			sb(t_stack *stack);
+void			ss(t_stack *stack);
 
 #endif

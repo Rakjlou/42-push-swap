@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 08:07:41 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 08:28:20 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,22 @@ typedef enum e_op_id
 }	t_op_id;
 
 /* op/utils.c */
-void	do_op(t_stack *stack, t_op_id id);
-void	do_2op(t_stack *stack, t_op_id id, t_op_id id2);
-void	do_3op(t_stack *stack, t_op_id id, t_op_id id2, t_op_id id3);
+void			do_op(t_stack *stack, t_op_id id);
+void			do_2op(t_stack *stack, t_op_id id, t_op_id id2);
+void			do_3op(t_stack *stack, t_op_id id, t_op_id id2, t_op_id id3);
 
 /* utils.c */
-int	num_at(t_lst *lst, size_t pos);
-int	get_max(t_lst *stack, unsigned int *pos);
-int	get_min(t_lst *stack, unsigned int *pos);
-int	data_to_index(void *data);
+int				num_at(t_lst *lst, size_t pos);
+unsigned int	index_at(t_lst *lst, size_t pos);
+t_num			*data_at(t_lst *lst, size_t pos);
+int				get_max(t_lst *stack, unsigned int *pos);
+int				get_min(t_lst *stack, unsigned int *pos);
 
 /* build_indexes.c */
-void	build_indexes(t_lst *lst);
+void			build_indexes(t_stack *stack);
 
 /* sort/ */
-void	sort3(t_stack *stack);
-void	sort5(t_stack *stack);
+void			sort3(t_stack *stack);
+void			sort5(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 08:04:27 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 10:07:18 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ static void	print_num(t_bool print, void *data, int direction)
 	int				num;
 	unsigned int	index;
 
-	num = data_to_num(data);
-	index = data_to_index(data);
+	if (print)
+	{
+		num = data_to_num(data);
+		index = data_to_index(data);
+	}
 	if (print && direction < 0)
 		ftprintf("\033[30;1m%5u.\033[0m%12d", index, num);
 	else if (print && direction > 0)
