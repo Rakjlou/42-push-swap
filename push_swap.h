@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 07:32:27 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 08:07:41 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "common.h"
 
-typedef	enum	e_op_id
+typedef enum e_op_id
 {
 	PA,
 	PB,

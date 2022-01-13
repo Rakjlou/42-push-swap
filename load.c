@@ -6,12 +6,13 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 07:16:08 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 08:07:22 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
+#include <stdio.h>
 
 static t_bool	valid_chars(const char *arg)
 {
@@ -58,11 +59,13 @@ static t_bool	num_exists(t_stack *stack, int num)
 static t_bool	check_validity(const char *arg, int *valid_num)
 {
 	long	num;
+	size_t	len;
 
 	if (!valid_chars(arg))
 		return (FALSE);
+	len = ft_strlen(arg);
 	num = ft_atol(arg);
-	if (num > INT_MAX || num < INT_MIN || (long)(int)num != num)
+	if (num > INT_MAX || num < INT_MIN || (long)(int)num != num || len > 11)
 		return (FALSE);
 	*valid_num = (int)num;
 	return (TRUE);
