@@ -2,3 +2,4 @@
 *.a
 push_swap
 checker
+benchmark.sh
