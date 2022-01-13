@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2021/12/12 08:30:38 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/13 07:33:54 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ COMMON = stack.c \
 
 SRC = $(COMMON) \
 	sort/sort3.c \
+	sort/sort5.c \
+	build_indexes.c \
 	main.c \
 
 CHECKER_SRC = $(COMMON) \

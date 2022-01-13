@@ -16,6 +16,13 @@ void	do_2op(t_stack *stack, t_op_id id, t_op_id id2)
 	do_op(stack, id2);
 }
 
+void	do_3op(t_stack *stack, t_op_id id, t_op_id id2, t_op_id id3)
+{
+	do_op(stack, id);
+	do_op(stack, id2);
+	do_op(stack, id3);
+}
+
 t_op	*get_ops(void)
 {
 	static t_op	op[OP_COUNT];

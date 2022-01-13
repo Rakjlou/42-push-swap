@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/07 23:38:25 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 07:15:41 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ typedef struct s_op
 	void	(*callback)(t_stack *);
 }	t_op;
 
+typedef struct s_num
+{
+	int				num;
+	unsigned int	index;
+}	t_num;
+
 
 /* stack.c */
 void	stack_print(t_stack *stack);
@@ -50,7 +56,7 @@ t_bool	load(t_stack *stack, int ac, char **av);
 
 /* utils.c */
 int		data_to_num(void *data);
-int		*malloc_num(int num);
+t_num	*malloc_num(int num);
 
 /* op/ */
 t_op	*get_ops(void);

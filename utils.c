@@ -1,7 +1,7 @@
 #include "common.h"
 #include <limits.h>
 
-int	get_max(t_lst *stack)
+int	get_max(t_lst *stack, unsigned int *pos)
 {
 	t_iter	iter;
 	int		max;
@@ -13,12 +13,16 @@ int	get_max(t_lst *stack)
 	{
 		candidate = data_to_num(iter.data);
 		if (candidate > max)
+		{
 			max = candidate;
+			if (pos != NULL)
+				*pos = (unsigned int)iter.pos;
+		}
 	}
 	return (max);
 }
 
-int	get_min(t_lst *stack)
+int	get_min(t_lst *stack, unsigned int *pos)
 {
 	t_iter	iter;
 	int		min;
@@ -30,7 +34,11 @@ int	get_min(t_lst *stack)
 	{
 		candidate = data_to_num(iter.data);
 		if (candidate < min)
+		{
 			min = candidate;
+			if (pos != NULL)
+				*pos = (unsigned int)iter.pos;
+		}
 	}
 	return (min);
 }
@@ -42,19 +50,28 @@ int	num_at(t_lst *lst, size_t pos)
 
 int	data_to_num(void *data)
 {
-	int	*int_data;
+	t_num	*num;
 
-	int_data = (int *)data;
-	return (*int_data);
+	num = (t_num *)data;
+	return (num->num);
 }
 
-int	*malloc_num(int num)
+int	data_to_index(void *data)
 {
-	int	*m_num;
+	t_num	*num;
 
-	m_num = ft_calloc(1, sizeof(int));
-	if (m_num == NULL)
+	num = (t_num *)data;
+	return (num->index);
+}
+
+t_num	*malloc_num(int number)
+{
+	t_num	*num;
+
+	num = ft_calloc(1, sizeof(t_num));
+	if (num == NULL)
 		return (NULL);
-	*m_num = num;
-	return (m_num);
+	num->num = number;
+	num->index = 0;
+	return (num);
 }

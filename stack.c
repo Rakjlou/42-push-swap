@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/07 23:37:46 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 08:04:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 static void	print_num(t_bool print, void *data, int direction)
 {
+	int				num;
+	unsigned int	index;
+
+	num = data_to_num(data);
+	index = data_to_index(data);
 	if (print && direction < 0)
-		ftprintf("%15d", data_to_num(data));
+		ftprintf("\033[30;1m%5u.\033[0m%12d", index, num);
 	else if (print && direction > 0)
-		ftprintf("%-15d", data_to_num(data));
+		ftprintf("\033[30;1m%u.\033[0m %-15d", index, num);
 	else if (direction < 0)
 		ftprintf("%15s", "");
 	else if (direction > 0)
@@ -31,9 +36,9 @@ void	stack_print(t_stack *stack)
 
 	iter_init(&ps.a, stack->a, ASC);
 	iter_init(&ps.b, stack->b, ASC);
-	ftprintf("=================================\n");
-	ftprintf("%15s | %-15s\n", "Stack A", "Stack B");
-	ftprintf("%15s | %-15s\n", "-------", "-------");
+	ftprintf("==========================================\n");
+	ftprintf("%18s | %-18s\n", "Stack A", "Stack B");
+	ftprintf("%18s | %-18s\n", "-------", "-------");
 	while (42)
 	{
 		ps.a_print = TRUE;
@@ -49,7 +54,7 @@ void	stack_print(t_stack *stack)
 		print_num(ps.b_print, ps.b.data, 1);
 		ftprintf("\n");
 	}
-	ftprintf("=================================\n");
+	ftprintf("==========================================\n");
 }
 
 t_bool	stack_init(t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/07 23:37:30 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 07:16:08 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static t_bool	valid_chars(const char *arg)
 	return (FALSE);
 }
 
-static t_bool	load_num(t_stack *stack, int num)
+static t_bool	load_num(t_stack *stack, int number)
 {
-	int	*m_num;
+	t_num	*num;
 
-	m_num = malloc_num(num);
-	if (m_num == NULL || !lst_push_back(stack->a, m_num))
+	num = malloc_num(number);
+	if (num == NULL || !lst_push_back(stack->a, num))
 		return (FALSE);
 	return (TRUE);
 }

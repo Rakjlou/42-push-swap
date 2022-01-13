@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/07 23:37:33 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/13 01:10:33 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ static void	stack_sort(t_stack *stack)
 		do_op(stack, SA);
 	else if (stack->a->size == 3)
 		sort3(stack);
-	else if (stack->a->size > 3)
+	else if (stack->a->size <= 5)
+		sort5(stack);
+	else if (stack->a->size > 5)
 		ft_putendl_fd("TOO BIG FOR NOW", STDOUT_FILENO);
 }
 

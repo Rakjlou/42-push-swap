@@ -5,8 +5,8 @@ static void	get_min_max_mid(t_stack *stack, int *min, int *max, int *mid)
 	int	i;
 	int	candidate;
 
-	*max = get_max(stack->a);
-	*min = get_min(stack->a);
+	*max = get_max(stack->a, NULL);
+	*min = get_min(stack->a, NULL);
 	i = 0;
 	while (i < 3)
 	{
