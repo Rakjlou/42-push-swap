@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 10:16:49 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:12:29 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,10 @@ static void	read_cmds(t_stack *stack)
 			if (error == 0)
 			{
 				++cmds_total;
+				/*
 				ft_putendl_fd(line, STDOUT_FILENO);
 				stack_print(stack);
+				*/
 			}
 		}
 		free(line);
@@ -115,6 +117,7 @@ int	main(int ac, char **av)
 
 	stack.a = NULL;
 	stack.b = NULL;
+	stack.instructions = NULL;
 	if (ac <= 1)
 		return (EXIT_FAILURE);
 	else if (!load(&stack, ac, av))

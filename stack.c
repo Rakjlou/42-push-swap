@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 10:07:18 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:10:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ void	stack_destroy(t_stack *stack)
 		lst_destroy(&stack->a, free);
 	if (stack->b != NULL)
 		lst_destroy(&stack->b, free);
+	if (stack->instructions != NULL)
+		lst_destroy(&stack->instructions, free);
 }

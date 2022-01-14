@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 08:41:13 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:10:31 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 
 	stack.a = NULL;
 	stack.b = NULL;
+	stack.instructions = NULL;
 	stack.max_index = 0;
 	if (ac <= 1)
 		return (EXIT_FAILURE);
