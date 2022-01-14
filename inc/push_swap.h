@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 02:07:56 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 02:11:35 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ void			build_indexes(t_stack *stack);
 void			sort3(t_stack *stack);
 void			sort5(t_stack *stack);
 void			sort(t_stack *stack);
-
 
 #endif
