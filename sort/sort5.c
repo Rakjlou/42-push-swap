@@ -6,13 +6,11 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 01:04:39 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 01:19:38 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 02:06:15 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ftprintf.h"
-#include <limits.h>
 
 static void	set_first_indexes_aside(t_stack *stack)
 {

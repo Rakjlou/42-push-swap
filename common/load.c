@@ -6,13 +6,12 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 01:44:00 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 02:04:05 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 #include <limits.h>
-#include <stdio.h>
 
 static t_bool	valid_chars(const char *arg)
 {
