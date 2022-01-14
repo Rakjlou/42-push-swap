@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 07:18:02 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 01:09:04 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 02:19:05 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ void	build_indexes(t_stack *stack)
 	{
 		num = (t_num *)iter.data;
 		num->index = count_lesser(stack->a, num->num);
-		stack->max_index = num->index;
 	}
 }
