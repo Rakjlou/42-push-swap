@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 21:38:42 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 23:39:26 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:40:50 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,6 @@ int	num_at(t_lst *lst, size_t pos)
 	return (data_to_num(lst_data_at(lst, pos)));
 }
 
-int	data_to_num(void *data)
-{
-	t_num	*num;
-
-	num = (t_num *)data;
-	return (num->num);
-}
-
 unsigned int	index_at(t_lst *lst, size_t pos)
 {
 	return (data_to_index(lst_data_at(lst, pos)));
@@ -76,24 +68,4 @@ unsigned int	index_at(t_lst *lst, size_t pos)
 t_num	*data_at(t_lst *lst, size_t pos)
 {
 	return ((t_num *)lst_data_at(lst, pos));
-}
-
-unsigned int	data_to_index(void *data)
-{
-	t_num	*num;
-
-	num = (t_num *)data;
-	return (num->index);
-}
-
-t_num	*malloc_num(int number)
-{
-	t_num	*num;
-
-	num = ft_calloc(1, sizeof(t_num));
-	if (num == NULL)
-		return (NULL);
-	num->num = number;
-	num->index = 0;
-	return (num);
 }

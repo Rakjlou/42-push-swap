@@ -6,15 +6,15 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/13 07:33:54 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/14 01:45:45 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-COMMON = stack.c \
-	load.c \
-	utils.c \
+COMMON = common/stack.c \
+	common/load.c \
+	common/utils.c \
 	op/pa.c \
 	op/pb.c \
 	op/ra.c \
@@ -31,6 +31,7 @@ COMMON = stack.c \
 SRC = $(COMMON) \
 	sort/sort3.c \
 	sort/sort5.c \
+	utils.c \
 	build_indexes.c \
 	main.c \
 
@@ -42,7 +43,7 @@ CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -g3 -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I .
+CFLAGS = -g3 -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
 LDFLAGS = -L libft/
 LDLIBS = -lft
 

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 22:11:22 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 01:39:13 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			stack_destroy(t_stack *stack);
 /* load.c */
 t_bool			load(t_stack *stack, int ac, char **av);
 
-/* utils.c */
+/* utils_common.c */
 int				data_to_num(void *data);
 unsigned int	data_to_index(void *data);
 t_num			*malloc_num(int num);
