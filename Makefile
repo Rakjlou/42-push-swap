@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/14 01:45:45 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/14 01:54:53 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC = $(COMMON) \
 	main.c \
 
 CHECKER_SRC = $(COMMON) \
-	main_checker.c \
+	checker.c \
 
 OBJ = $(SRC:.c=.o)
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
