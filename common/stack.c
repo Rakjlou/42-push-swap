@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 02:18:58 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 04:02:10 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 
 static void	print_num(t_bool print, void *data, int direction)
 {
-	int				num;
+	t_num			*num;
+	int				number;
 	unsigned int	index;
 
+	num = (t_num *)data;
 	if (print)
 	{
-		num = data_to_num(data);
-		index = data_to_index(data);
+		index = num->index;
+		number = num->num;
 	}
-	if (print && direction < 0)
-		ftprintf("\033[30;1m%5u.\033[0m%12d", index, num);
+	if (print && direction < 0 && num->keep == FALSE)
+		ftprintf("\033[30;1m%5u.\033[0m\033[31;1m%12d\033[0m", index, number);
+	else if (print && direction < 0)
+		ftprintf("\033[30;1m%5u.\033[0m%12d", index, number);
 	else if (print && direction > 0)
-		ftprintf("\033[30;1m%u.\033[0m %-15d", index, num);
+		ftprintf("\033[30;1m%u.\033[0m %-15d", index, number);
 	else if (direction < 0)
 		ftprintf("%15s", "");
 	else if (direction > 0)

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 02:19:09 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 03:03:09 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_num
 {
 	int				num;
 	unsigned int	index;
+	t_bool			keep;
 }	t_num;
 
 /* stack.c */

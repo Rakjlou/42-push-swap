@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 02:03:40 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 02:19:29 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 03:51:55 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	sort(t_stack *stack)
 {
-	(void)stack;
+	set_kept_nodes(stack);
 }
