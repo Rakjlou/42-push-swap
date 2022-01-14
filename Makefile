@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/14 01:54:53 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/14 01:56:34 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ fclean: clean
 	rm -f $(NAME) checker
 
 test: all checker
-	valgrind ./push_swap $(values) | valgrind ./checker $(values)
+	valgrind ./push_swap $(v) | valgrind ./checker $(v)
 
 re: fclean all
 
