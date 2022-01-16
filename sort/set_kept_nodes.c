@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:42:45 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 03:58:59 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/14 05:40:46 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,4 @@ void	set_kept_nodes(t_stack *stack)
 		set_kept_nodes_by_index(stack, pos_by_index);
 	else
 		set_kept_nodes_by_greater(stack, pos_by_greater);
-	stack_print(stack);
 }

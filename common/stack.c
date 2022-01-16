@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 04:02:10 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 02:39:50 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void	print_num(t_bool print, void *data, int direction)
 	else if (print && direction > 0)
 		ftprintf("\033[30;1m%u.\033[0m %-15d", index, number);
 	else if (direction < 0)
-		ftprintf("%15s", "");
+		ftprintf("%18s", "");
 	else if (direction > 0)
-		ftprintf("%-15s", "");
+		ftprintf("%-18s", "");
 }
 
 void	stack_print(t_stack *stack)
@@ -69,6 +69,7 @@ t_bool	stack_init(t_stack *stack)
 	stack->a = NULL;
 	stack->b = NULL;
 	stack->instructions = NULL;
+	stack->max_index = 0;
 	stack->a = lst_new();
 	if (stack->a == NULL)
 		return (FALSE);

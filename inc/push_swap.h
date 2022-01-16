@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 03:52:26 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 03:24:54 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ int				get_min(t_lst *stack, unsigned int *pos);
 void			build_indexes(t_stack *stack);
 
 /* sort/ */
+unsigned int	find_position(t_stack *stack, t_num *num);
+void			set_kept_nodes(t_stack *stack);
+void			flush_a(t_stack *stack);
+void			flush_b(t_stack *stack);
 void			sort3(t_stack *stack);
 void			sort5(t_stack *stack);
 void			sort(t_stack *stack);
-void			set_kept_nodes(t_stack *stack);
 
 #endif

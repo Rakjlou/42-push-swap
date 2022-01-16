@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/14 03:52:37 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/16 03:24:32 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,13 @@ COMMON = common/stack.c \
 	op/utils.c \
 
 SRC = $(COMMON) \
+	sort/set_kept_nodes.c \
+	sort/find_position.c \
+	sort/flush_a.c \
+	sort/flush_b.c \
 	sort/sort3.c \
 	sort/sort5.c \
 	sort/sort.c \
-	sort/set_kept_nodes.c \
 	utils.c \
 	build_indexes.c \
 	main.c \
