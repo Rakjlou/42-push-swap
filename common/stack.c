@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/16 02:39:50 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 04:27:21 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ t_bool	stack_init(t_stack *stack)
 	stack->b = NULL;
 	stack->instructions = NULL;
 	stack->max_index = 0;
+	stack->anchor_index = 0;
+	stack->anchor_function = NULL;
 	stack->a = lst_new();
 	if (stack->a == NULL)
 		return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 05:17:49 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 04:27:48 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_stack
 	t_lst			*b;
 	t_lst			*instructions;
 	unsigned int	max_index;
+	unsigned int	anchor_index;
+	unsigned int	(*anchor_function)(struct s_stack *, size_t);
 }	t_stack;
 
 typedef struct s_stack_print
