@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 21:38:42 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/13 00:00:38 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 06:47:25 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	get_min_max_mid(t_stack *stack, int *min, int *max, int *mid)
 
 	*max = get_max(stack->a, NULL);
 	*min = get_min(stack->a, NULL);
+	*mid = 0;
 	i = 0;
 	while (i < 3)
 	{

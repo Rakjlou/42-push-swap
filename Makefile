@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/16 03:24:32 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/16 06:46:06 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -g3 -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
+CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
 LDFLAGS = -L libft/
 LDLIBS = -lft
 

@@ -6,71 +6,111 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 03:23:49 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/16 04:46:49 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 07:02:57 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ftprintf.h"
 #include <limits.h>
-#include <stdlib.h>
 
-static void	flush_best(t_stack *stack, unsigned int nth)
+static void	flush_best(t_stack *stack, t_flush *flush)
 {
-	unsigned int	position;
-	unsigned int	i;
+	while (flush->rr--)
+		do_op(stack, RR);
+	while (flush->rb--)
+		do_op(stack, RB);
+	while (flush->ra--)
+		do_op(stack, RA);
+	while (flush->rrr--)
+		do_op(stack, RRR);
+	while (flush->rrb--)
+		do_op(stack, RRB);
+	while (flush->rra--)
+		do_op(stack, RRA);
+	if (stack->b->size > 0)
+		do_op(stack, PA);
+}
 
-/*	stack_print(stack);
-*/	i = 0;
-	position = find_position(stack, data_at(stack->b, nth));
-	if (position <= stack->a->size / 2)
+static void	flush_init(t_flush *flush, unsigned int apos, unsigned int bpos)
+{
+	flush->total = 1;
+	flush->rr = 0;
+	flush->rb = 0;
+	flush->ra = 0;
+	flush->rrr = 0;
+	flush->rrb = 0;
+	flush->rra = 0;
+	flush->apos = apos;
+	flush->bpos = bpos;
+}
+
+static void	flush_compute(
+	t_stack *stack,
+	t_flush *flush,
+	unsigned int apos,
+	unsigned int bpos)
+{
+	if (apos <= stack->a->size / 2 && bpos <= stack->b->size / 2)
 	{
-		while (nth && i < position)
-			(++i, --nth, do_op(stack, RR));
-		while (nth--)
-			do_op(stack, RB);
-		while (i++ < position)
-			do_op(stack, RA);
+		flush->rr = ft_min(apos, bpos);
+		flush->rb = bpos - flush->rr;
+		flush->ra = apos - flush->rr;
+	}
+	else if (apos > stack->a->size / 2 && bpos > stack->b->size / 2)
+	{
+		flush->rrr = ft_min(stack->a->size - apos, stack->b->size - bpos);
+		flush->rrb = stack->b->size - bpos - flush->rrr;
+		flush->rra = stack->a->size - apos - flush->rrr;
 	}
 	else
 	{
-		while (nth--)
-			do_op(stack, RB);
-		while (i++ < stack->a->size - position)
-			do_op(stack, RRA);
+		if (bpos <= stack->b->size / 2)
+			flush->rb = bpos;
+		else
+			flush->rrb = stack->b->size - bpos;
+		if (apos <= stack->a->size / 2)
+			flush->ra = apos;
+		else
+			flush->rra = stack->a->size - apos;
 	}
-	do_op(stack, PA);
-/*	stack_print(stack);
-*/}
+	flush->total += flush->rr + flush->rb + flush->ra
+		+ flush->rrr + flush->rrb + flush->rra;
+}
+
+static void	flush_copy(t_flush *src, t_flush *dest)
+{
+	dest->total = src->total;
+	dest->rr = src->rr;
+	dest->rb = src->rb;
+	dest->ra = src->ra;
+	dest->rrr = src->rrr;
+	dest->rrb = src->rrb;
+	dest->rra = src->rra;
+	dest->apos = src->apos;
+	dest->bpos = src->bpos;
+}
 
 void	flush_b(t_stack *stack)
 {
-	unsigned int	best_to_insert;
-	unsigned int	best_to_insert_actions;
-	unsigned int	actions;
-	unsigned int	position;
-	unsigned int	i;
+	unsigned int	bpos;
+	unsigned int	apos;
+	t_flush			best;
+	t_flush			current;
 
-	i = 0;
-	best_to_insert = 0;
-	best_to_insert_actions = UINT_MAX;
-	while (i < stack->b->size)
+	bpos = 0;
+	flush_init(&best, 0, 0);
+	best.total = UINT_MAX;
+	while (bpos < stack->b->size)
 	{
-		actions = 0;
-		position = find_position(stack, data_at(stack->b, i));
-		if (position <= stack->a->size / 2)
-			actions += position + i;
-		else
-			actions += (stack->a->size - position) + i;
-		if (actions < best_to_insert_actions)
-		{
-			best_to_insert = i;
-			best_to_insert_actions = actions;
-		}
-		++i;
+		apos = find_position(stack, data_at(stack->b, bpos));
+		flush_init(&current, apos, bpos);
+		flush_compute(stack, &current, apos, bpos);
+		if (current.total < best.total)
+			flush_copy(&current, &best);
+		++bpos;
 	}
-/*	ftprintf("Best to flush is at pos %u with %u actions\n", best_to_insert, best_to_insert_actions);
-*/	flush_best(stack, best_to_insert);
+	flush_best(stack, &best);
 	if (stack->b->size > 0)
 		flush_b(stack);
 }

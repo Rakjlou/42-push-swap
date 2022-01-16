@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 13:56:55 by nsierra-          #+#    #+#              #
-#    Updated: 2021/12/10 02:47:54 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/16 06:50:54 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,9 @@ LIBFT_SRC = ft_isalpha.c \
 	ft_lstmap.c \
 	ft_utoa_base.c \
 	ft_ltoa_base.c \
-	ft_fill_str.c
+	ft_fill_str.c \
+	ft_min.c \
+	ft_max.c \
 
 PRINTF_DIR = printf/
 PRINTF_SRC = ftprintf.c \

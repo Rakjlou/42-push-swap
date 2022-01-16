@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/16 03:24:54 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 05:47:39 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ typedef enum e_op_id
 	SB,
 	SS
 }	t_op_id;
+
+typedef struct s_flush
+{
+	unsigned int	total;
+	unsigned int	rr;
+	unsigned int	rb;
+	unsigned int	ra;
+	unsigned int	rrr;
+	unsigned int	rrb;
+	unsigned int	rra;
+	unsigned int	apos;
+	unsigned int	bpos;
+}	t_flush;
 
 /* op/utils.c */
 void			do_op(t_stack *stack, t_op_id id);

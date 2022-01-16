@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/14 05:48:19 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 07:03:30 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ static void	print_status(t_stack *stack)
 	}
 }
 
-/* TODO: Remove total cmds for norme */
 static void	read_cmds(t_stack *stack)
 {
 	char	*line;
@@ -80,7 +79,6 @@ static void	read_cmds(t_stack *stack)
 	int		cmds_total;
 
 	error = 0;
-	cmds_total = 0;
 	while (42)
 	{
 		line = get_next_line(STDIN_FILENO);
@@ -92,23 +90,14 @@ static void	read_cmds(t_stack *stack)
 			if (ft_strlen(line) < 2 || !execute_cmd(stack, line, len))
 				error = 1;
 			if (error == 0)
-			{
 				++cmds_total;
-				/*
-				ft_putendl_fd(line, STDOUT_FILENO);
-				stack_print(stack);
-				*/
-			}
 		}
 		free(line);
 	}
 	if (error == 1)
 		ft_putendl_fd(ERROR_MSG, STDERR_FILENO);
 	else
-	{
 		print_status(stack);
-		ftprintf("%d commands\n", cmds_total);
-	}
 }
 
 int	main(int ac, char **av)
