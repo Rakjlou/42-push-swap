@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 23:36:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/16 07:03:30 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/16 08:03:30 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ static void	read_cmds(t_stack *stack)
 	char	*line;
 	size_t	len;
 	int		error;
-	int		cmds_total;
 
 	error = 0;
 	while (42)
@@ -88,15 +87,14 @@ static void	read_cmds(t_stack *stack)
 		{
 			len = ft_strlen(line);
 			if (ft_strlen(line) < 2 || !execute_cmd(stack, line, len))
+			{
+				ft_putendl_fd(ERROR_MSG, STDERR_FILENO);
 				error = 1;
-			if (error == 0)
-				++cmds_total;
+			}
 		}
 		free(line);
 	}
-	if (error == 1)
-		ft_putendl_fd(ERROR_MSG, STDERR_FILENO);
-	else
+	if (error == 0)
 		print_status(stack);
 }
 

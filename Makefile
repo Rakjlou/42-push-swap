@@ -6,10 +6,10 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/16 06:46:06 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/16 08:09:16 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
+# make test v="`ruby -e "puts (-100000..100000).to_a.sample(5).join(' ')"`"
 NAME = push_swap
 
 COMMON = common/stack.c \
@@ -48,7 +48,7 @@ CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
+CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
 LDFLAGS = -L libft/
 LDLIBS = -lft
 
@@ -71,7 +71,16 @@ fclean: clean
 	rm -f $(NAME) checker
 
 test: all checker
+	./push_swap $(v) | ./checker $(v)
+	./push_swap $(v) | wc -l
+
+testv: all checker
 	valgrind ./push_swap $(v) | valgrind ./checker $(v)
+	./push_swap $(v) | wc -l
+
+tests:
+	@./push_swap $(v) | ./checker $(v)
+	@./push_swap $(v) | wc -l
 
 re: fclean all
 
