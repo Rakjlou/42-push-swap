@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/16 08:09:16 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/18 14:50:03 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 # make test v="`ruby -e "puts (-100000..100000).to_a.sample(5).join(' ')"`"
@@ -48,7 +48,7 @@ CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
+CFLAGS = -Wall -Wextra -Werror -I libft/ -I inc/
 LDFLAGS = -L libft/
 LDLIBS = -lft
 
